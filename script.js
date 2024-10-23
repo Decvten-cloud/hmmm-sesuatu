@@ -19,9 +19,12 @@ noBtn.addEventListener("mouseover", () => {
   const maxX = wrapperRect.width - noBtnRect.width;
   const maxY = wrapperRect.height - noBtnRect.height;
 
-  const randomX = Math.floor(Math.random() * maxX);
-  const randomY = Math.floor(Math.random() * maxY);
+  // Ensure no negative values for positioning
+  const randomX = Math.max(0, Math.floor(Math.random() * maxX));
+  const randomY = Math.max(0, Math.floor(Math.random() * maxY));
 
+  // Move the "No" button to a random position
+  noBtn.style.position = "absolute";  // Change position to absolute when it starts moving
   noBtn.style.left = randomX + "px";
   noBtn.style.top = randomY + "px";
 });
